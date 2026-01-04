@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">msite</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Welcome to msite</h1>
+                <p class="hero-subtitle">Discover the Magic</p>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <h2>About This Site</h2>
+                    <p class="intro-text">
+                        Welcome to msite, your portal to mystical predictions and digital fortune-telling.
+                        Our Magic 8-Ball uses advanced algorithms to provide you with consistent,
+                        thoughtful answers to all of life's important questions.
+                    </p>
+                    <p class="intro-text">
+                        Simply navigate to our Magic 8-Ball page, ask your question, and receive
+                        wisdom from the digital oracle. The same question will always yield the
+                        same answer, ensuring consistency in your cosmic guidance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 msite. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
