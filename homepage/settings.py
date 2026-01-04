@@ -1,5 +1,5 @@
 """
-Django settings for homepage project.
+Django settings for homepage project. 
 """
 
 import os
