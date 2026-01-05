@@ -2,10 +2,10 @@ trigger:
   branches:
     include:
       - master
-
 pool:
   vmImage: ubuntu-latest
-
+variables:
+  imageTag: '$(Build.BuildId)'
 steps:
 - task: Docker@2
   displayName: Home
@@ -14,11 +14,13 @@ steps:
     repository: 'pipeline_dev_home'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    tags: 'latest'
+    tags: |
+      $(imageTag)
+      latest
 - task: AzureCLI@2
   displayName: Deploy
   inputs:
     azureSubscription: 'Pipeline-Dev_ResourceConn'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az containerapp update --name uae-modrek-pipeline-dev --resource-group uae-modrek-rg --container-name pipeline-homepage --image modrekregistry.azurecr.io/pipeline_dev_home:latest'
+    inlineScript: 'az containerapp update --name uae-modrek-pipeline-dev --resource-group uae-modrek-rg --container-name pipeline-homepage --image modrekregistry.azurecr.io/pipeline_dev_home:$(imageTag) --revision-suffix build-$(imageTag)'
